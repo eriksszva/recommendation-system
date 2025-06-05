@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Gusti Ayu Putu Erika Erlina
+# Laporan Proyek Machine Learning
 
 ## Project Overview
 
