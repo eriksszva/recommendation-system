@@ -226,7 +226,7 @@ MovieLens Small (Latest Version) merupakan dataset film yang terdiri dari empat 
 
       * **Memvisualisasikan top 5 tag**
 
-         ![top5_tags](img\top5_tag.png)
+         ![top5_tags](img/top5_tag.png)
 
          Sementara itu, top 5 tags dalam bentuk barchart menunjukkan tag spesifik yang paling sering digunakan pengguna, yaitu "In Netflix Queue", "atmospheric". Berbeda dari wordcloud yang bersifat eksploratif, barchart memberikan informasi kuantitatif yang lebih jelas dan terukur.
       
@@ -442,9 +442,9 @@ Untuk menghitung kemiripan antar film, digunakan fungsi `cosine_similarity(tfidf
       * Kemiripan antara input dan setiap rekomendasi diukur dengan cosine similarity yang memberikan nilai antara 0 (tidak mirip) dan 1 (sangat mirip).
       * Rumus cosine similarity:
 
-      $$
-      \cos(\theta) = \frac{A \cdot B}{\|A\| \|B\|}
-      $$
+       $$
+       \cos(\theta) = \frac{A \cdot B}{\|A\| \|B\|}
+       $$
 
       di mana $A$ adalah vektor input dan $B$ adalah vektor dari masing-masing film yang direkomendasikan.
 
@@ -452,18 +452,20 @@ Untuk menghitung kemiripan antar film, digunakan fungsi `cosine_similarity(tfidf
 
       * Dalam fungsi ini, precision dihitung sebagai:
 
-      $$
+       $$
       \text{Precision@K} = \frac{\sum \text{Top-K Similarity Scores}}{K}
-      $$
+       $$
+
       * Ini memberikan nilai rata-rata kemiripan dari rekomendasi k teratas. Metrik ini menjelaskan seberapa “dekat” secara konten rekomendasi teratas terhadap input pengguna.
 
    4. **Recall:**
 
       * Recall diukur sebagai:
 
-      $$
+       $$
       \text{Recall@K} = \frac{\sum \text{Top-K Similarity Scores}}{\sum \text{All Similarity Scores}}
-      $$
+       $$
+
       * Ini menunjukkan proporsi total kemiripan (keseluruhan relevansi yang berhasil ditangkap oleh K rekomendasi teratas). Jika semua skor kemiripan hanya terkonsentrasi pada top-K, maka recall akan mendekati 1.
 
 * **Kesimpulan:**
@@ -490,9 +492,9 @@ Untuk menghitung kemiripan antar film, digunakan fungsi `cosine_similarity(tfidf
 
       Precision\@K mengukur proporsi item relevan di antara K rekomendasi teratas yang diberikan kepada pengguna. Formula dasarnya adalah:
 
-      $$
-      \text{Precision@K} = \frac{|\text{Relevant Items} \cap \text{Recommended@K}|}{K}
-      $$
+       $$
+       \text{Precision@K} = \frac{|\text{Relevant Items} \cap \text{Recommended@K}|}{K}
+       $$
 
       Pada kode `precision_at_k(model, interaction, k=10).mean()`, fungsi ini menghitung rata-rata precision dari 10 item teratas yang direkomendasikan untuk seluruh pengguna, baik pada data latih (`train_interaction`) maupun data uji (`test_interaction`). Semakin tinggi nilai Precision\@10, semakin banyak item relevan yang berhasil direkomendasikan dari daftar 10 teratas.
 
@@ -500,9 +502,9 @@ Untuk menghitung kemiripan antar film, digunakan fungsi `cosine_similarity(tfidf
 
       AUC (Area Under the ROC Curve) mengukur probabilitas bahwa model akan memberikan skor lebih tinggi untuk item yang benar-benar disukai (positif) dibandingkan dengan item yang tidak disukai (negatif). Formula umumnya adalah:
 
-      $$
-      \text{AUC} = P(\text{score}_{\text{positive}} > \text{score}_{\text{negative}})
-      $$
+       $$
+       \text{AUC} = P(\text{score}_{\text{positive}} > \text{score}_{\text{negative}})
+       $$
 
       Kode `auc_score(model, interaction).mean()` menghitung nilai AUC rata-rata dari semua pengguna. AUC ideal mendekati 1.0, yang berarti model sangat andal dalam membedakan item relevan dan tidak relevan. AUC dinilai pada data latih dan uji untuk mengukur kemampuan generalisasi model.
 
